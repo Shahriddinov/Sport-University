@@ -20,8 +20,8 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import InfoIcon from '@mui/icons-material/Info';
 import ArticleIcon from '@mui/icons-material/Article';
-
-
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 const {Header, Content, Footer, Sider} = Layout;
 
 function getItem(label, key, icon, children) {
@@ -83,7 +83,7 @@ const ComeSystem = () => {
                         }}
                     >
                         <div className="container">
-                            <div className="left">
+                            <div className="lefts">
                                 <div className="name">ФИО</div>
                                 <div className="jobTitle">должность</div>
                             </div>
@@ -121,10 +121,50 @@ const ComeSystem = () => {
                             className="site-layout-background"
                             style={{
                                 padding: 24,
-                                height: "100vh"
+                                height: "60vh",
+                                border: "0.5px solid rgba(0, 0, 0, 0.04)",
+                                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+                                borderRadius: "12px",
                             }}
                         >
-                            Bill is a cat.
+
+                            <div className="form-control">
+                                <label className="cityLabel">Филиалы *</label>
+                                <select className="city">
+                                    <option value="Toshkent">Toshkent</option>
+                                    <option value="Samarqand">Samarqand</option>
+                                    <option value="Farg'ona">Farg'ona</option>
+                                    <option value="Nukus">Nukus</option>
+                                </select>
+                                <label className="cityLabel">Логин *</label>
+                                <input type="text" placeholder="Login" className="city"/>
+                                <label className="cityLabel">Пароль *</label>
+                                <input type="number" placeholder="Parol" className="city"/>
+                            </div>
+                            <div className="d-flex p-3 align-items-center justify-content-between">
+                                <div className="d-flex align-items-center">
+                                    <label className="switch">
+                                        <input type="checkbox"/>
+                                        <span className="slider"></span>
+                                    </label>
+                                    <div className="radioText" >
+                                        Я согласен с политикой конфедициальности
+                                    </div>
+                                </div>
+                                <div className="passwordError">
+                                    Забыли пароль ?
+                                </div>
+                            </div>
+                        </div>
+                        <div className="buttons">
+                            <button className="comeButton">
+                                <HighlightOffIcon className="comeIcon"/>
+                                Назад
+                            </button>
+                            <button className="comeButton">
+                            <CheckCircleIcon className="comeIcon"/>
+                                Войти
+                            </button>
                         </div>
                     </Content>
                 </Layout>
