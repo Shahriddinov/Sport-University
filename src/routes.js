@@ -14,6 +14,7 @@ const Work=lazy(()=>import("./page/work/work"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 
 
+
 const routes = [
     {path: "/register", element: LoginIn},
     {path: "/login", element: LoginUp},
@@ -21,7 +22,6 @@ const routes = [
     {path: "", element: Home},
     {path: "/profile", element: Profile},
     {path:"/work", element:Work},
-
     {path: "/education", element: Education},
 
 ];
