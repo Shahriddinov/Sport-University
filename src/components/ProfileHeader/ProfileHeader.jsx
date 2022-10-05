@@ -7,31 +7,43 @@ import "antd/dist/antd.css";
 import "./ProfileHeader.scss";
 import UzFlag from "../../assets/images/Uz.png";
 import React from "react";
+import Notification from "../Notification/notification";
+import {useTranslation} from "react-i18next";
 
 const { Header } = Layout;
 
-function ProfileHeader({ handleChangeLng }) {
+function ProfileHeader({ handleChangeLng, questionNeed }) {
+  const {t} = useTranslation();
+
   return (
     <Layout>
       <Header>
         <div className="profile__container">
-          <div className="leftes">
-            <div className="name">ФИО</div>
-            <div className="jobTitle">должность</div>
+          <div className="profile__left">
+            <div className="name">{t("fio")}</div>
+            <div className="jobTitle">{t("responsibilty")}</div>
           </div>
-          <div className="right">
-            <button className="flagButton" onClick={() => handleChangeLng("uz")}>
-              <img className="iconFlag" src={UzFlag} alt=""/>
+          <div className="profile__right">
+            <button
+              className="flagButton"
+              onClick={() => handleChangeLng("uz")}
+            >
+              <img className="iconFlag" src={UzFlag} alt="" />
               Uz
             </button>
-            <button className="flagButton" onClick={() => handleChangeLng("ru")}>
-              <img className="iconFlag" src={RuFlag} alt=""/>
+            <button
+              className="flagButton"
+              onClick={() => handleChangeLng("ru")}
+            >
+              <img className="iconFlag" src={RuFlag} alt="" />
               Ру
             </button>
-            <NotificationsNoneIcon className="icon"/>
-            <Link className="question" to="/">
-              <img src={QuestionMark} width="20" height="20" />
-            </Link>
+            <Notification />
+            {questionNeed && (
+              <Link className="question" to="/">
+                <img src={QuestionMark} width="20" height="20" />
+              </Link>
+            )}
           </div>
         </div>
       </Header>

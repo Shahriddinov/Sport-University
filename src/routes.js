@@ -4,15 +4,21 @@ import {Spinner} from "./components";
 import ScrollTop from "./hoc/ScrollTop";
 import Layout from "./components/Layout/Layout";
 import Profile from "./page/Profile/Profile";
+import ProfileSidebar from "./components/ProfileSidebar/ProfileSidebar";
 
 const Home = lazy(() => import("./page/Home/Home"));
 const LoginIn = lazy(()=> import("./page/Login"));
 const LoginUp = lazy(()=> import("./page/Login/LoginUp"));
 const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
-const Work=lazy(()=>import("./page/work/work"));
+const Work=lazy(()=>import("./page/Work/work"));
 const Education = lazy(()=>import("./page/Education/eduction"));
-
+const Qualification = lazy(()=>import("./page/Qualification/qualification"));
+const allInfo = lazy(()=>import("./page/AllInformation/allInformation"));
+const ProfileOverview = lazy(()=>import("./page/ProfileOverview/profileOverview"));
+const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
+const Certificates = lazy(() => import("./page/Certificates/certificates"));
+const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
 
 
 const routes = [
@@ -21,8 +27,16 @@ const routes = [
     {path: "/userInfo", element: userInfo},
     {path: "", element: Home},
     {path: "/profile", element: Profile},
-    {path:"/work", element:Work},
+    {path:"/work", element: Work},
     {path: "/education", element: Education},
+    {path:"/allInformation", element:allInfo},
+    {path:"/adminProfile", element:AdminProfile},
+    {path:"/certificates", element:Certificates},
+    {path:"/portfolio", element:Portfolio},
+    {path:"/profileOverview", element:ProfileOverview},
+    {path:"/qualification", element:Qualification}
+
+
 
 ];
 const RoutesContainer = () => (
