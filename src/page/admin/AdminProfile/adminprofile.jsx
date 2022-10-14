@@ -2473,6 +2473,7 @@ const AdminProfile = () =>{
                 <ProfileSidebar items={items}/>
                 <div className="basePart">
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
+
                     <ProfileNavbar title={"profile"}/>
                     <div className="selection">
 
