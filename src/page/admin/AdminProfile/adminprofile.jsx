@@ -5,290 +5,34 @@ import SdCardIcon from "@mui/icons-material/SdCard";
 import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import {useTranslation} from "react-i18next";
-import "./style.scss";
-import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
-import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
-import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
-import Footer from "../../components/Layout/Footer/Footer";
-import TeacherCard from "../../components/admin/teacherCard/teacherCard";
+import "./adminprofile.scss";
+import ProfileSidebar from "../../../components/ProfileSidebar/ProfileSidebar";
+import ProfileHeader from "../../../components/ProfileHeader/ProfileHeader";
+import ProfileNavbar from "../../../components/ProfileNavbar/ProfileNavbar";
+import Footer from "../../../components/Layout/Footer/Footer";
+import TeacherCard from "../../../components/admin/teacherCard/teacherCard";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
+import DownloadIcon from '@mui/icons-material/Download';
+
+
 
 
 const AdminProfile = () =>{
 
     let Query = [
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
-                teachers:[
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                    {
-                        name:"Ботиров Асадбек Алимович",
-                        image:"teacher.png",
-                        id:"AD 2113212",
-                        score:"39",
-                        speciality:"Физическая культура",
-                        qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                        dateLastQual:"18.06.2022",
-                        education:"еще не известно"
-                    },
-                ]
-        },
-        {
-            eduName:"ТАТУ ҳузуридаги тармоқ маркази",
+            eduName:"I. Руководители и заместители спортивных учебных заведений",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -553,7 +297,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДПУ ҳузуридаги тармоқ маркази",
+            eduName:"II. Инструкторы-методисты спортивных учебных заведений",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -818,7 +562,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДТУ ҳузуридаги тармоқ маркази",
+            eduName:"III. Тренеры республиканских школ высшего спортивного мастерства, колледжей олимпийского резерва, специализированных детско-юношеских спортивных школ, специализированных школ олимпийского резерва",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -1083,7 +827,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"IV. Тренеры спортивных школ для детей и подростков",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -1348,7 +1092,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"V. Спортивные психологи",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -1613,7 +1357,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"VI. Руководители и педагоги высших учебных заведений по физической культуре и спорту",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -1878,7 +1622,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"VII. Преподаватели физической культуры профессиональных образовательных учреждений (кроме специальностей физической культуры и спорта)",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -2143,7 +1887,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"VIII. Учителя физической культуры общеобразовательных и средних специальных образовательных организаций",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -2408,272 +2152,7 @@ const AdminProfile = () =>{
             ]
         },
         {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
-            teachers:[
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-                {
-                    name:"Ботиров Асадбек Алимович",
-                    image:"teacher.png",
-                    id:"AD 2113212",
-                    score:"39",
-                    speciality:"Физическая культура",
-                    qualificationInformation:"Высшее образование и 10 лет стажа. Преподаватель высокого уровня.",
-                    dateLastQual:"18.06.2022",
-                    education:"еще не известно"
-                },
-            ]
-        },
-        {
-            eduName:"ТДИУ ҳузуридаги тармоқ маркази",
+            eduName:"IX. Инструкторы по физической культуре дошкольных образовательных организаций",
             teachers:[
                 {
                     name:"Ботиров Асадбек Алимович",
@@ -2937,6 +2416,7 @@ const AdminProfile = () =>{
                 },
             ]
         }
+
     ];
 
     const [teachers, setTeachers] = useState([]);
@@ -2981,6 +2461,12 @@ const AdminProfile = () =>{
         localStorage.setItem("lng", lng);
     };
 
+    const [age, setAge] = React.useState('age');
+    const [label, setLabel]=React.useState('jasur');
+
+
+
+
     return (
         <>
             <section id="admin" className="admin">
@@ -2989,55 +2475,61 @@ const AdminProfile = () =>{
                     <ProfileHeader handleChangeLng={handleChangeLng}/>
                     <ProfileNavbar title={"profile"}/>
                     <div className="selection">
-                        <h5 className="stat">{t("AuthorStat")}</h5>
-                        <div className="filters">
-                            <select className="form-control formInfo" id="list" placeholder="Список образовательных учреждений и организаций">
-                                <option value="0" disabled>Список образовательных учреждений и организаций</option>
-                                <option value="1">1. Типы руководителей и заместителей спортивыхных уч. завед. </option>
-                                <option value="1">2. Типы руководителей и заместителей спортивыхных уч. завед. </option>
-                                <option value="1">3. Типы руководителей и заместителей спортивыхных уч. завед. </option>
-                                <option value="1">4. Типы руководителей и заместителей спортивыхных уч. завед. </option>
-                                <option value="1">5. Типы руководителей и заместителей спортивыхных уч. завед. </option>
+
+                        <div className="all-directions-select">
+                            <select className="form-select" aria-label="Default select example">
+                                <option selected>Все направления</option>
+                                <option value="I. Руководители и заместители спортивных учебных заведений">I. Руководители и заместители спортивных учебных заведений</option>
+                                <option value="II. Инструкторы-методисты спортивных учебных заведений">II. Инструкторы-методисты спортивных учебных заведений</option>
+                                <option value="III. Тренеры республиканских школ высшего спортивного мастерства, колледжей олимпийского резерва, специализированных детско-юношеских спортивных школ, специализированных школ олимпийского резерва">III. Тренеры республиканских школ высшего спортивного мастерства, колледжей олимпийского резерва, специализированных детско-юношеских спортивных школ, специализированных школ олимпийского резерва</option>
+                                <option value="IV. Тренеры спортивных школ для детей и подростков">IV. Тренеры спортивных школ для детей и подростков</option>
+                                <option value="V. Спортивные психологи">V. Спортивные психологи</option>
+                                <option value="VI. Руководители и педагоги высших учебных заведений по физической культуре и спорту">VI. Руководители и педагоги высших учебных заведений по физической культуре и спорту</option>
+                                <option value="VII. Преподаватели физической культуры профессиональных образовательных учреждений (кроме специальностей физической культуры и спорта)">VII. Преподаватели физической культуры профессиональных образовательных учреждений (кроме специальностей физической культуры и спорта)</option>
+                                <option value="VIII. Учителя физической культуры общеобразовательных и средних специальных образовательных организаций">VIII. Учителя физической культуры общеобразовательных и средних специальных образовательных организаций</option>
+                                <option value="IX. Инструкторы по физической культуре дошкольных образовательных организаций">IX. Инструкторы по физической культуре дошкольных образовательных организаций</option>
+                                <option value="all">Показать всё</option>
                             </select>
-                            <select className="form-control formInfo" id="filter">
-                                <option value="0" disabled={false}>ФИЛЬТР</option>
-                                {/*<option value="1">Ташкент</option>*/}
-                                <option value="2">Фергана</option>
-                                <option value="3">Карши</option>
-                                <option value="4">Навои</option>
-                                <option value="5">Самарканд</option>
-                                <option value="6">Жиззах</option>
-                                <option value="7">Наманган</option>
-                            </select>
+
                         </div>
+
+
                         <div className="listOfOrganize">
                             <div className="boxNav">
-                                <h1>{t("ListOfOrganize")}</h1>
+                                <h1>Список направлений</h1>
                             </div>
                             <div className="pdf-part">
                                 <div className="pdf">
                                     <div className="pdf-item">
                                         {
                                             Query.map((item, index) => {
-                                                return <div className="pdf-own" onClick={()=>Univer(index)}>
-                                                        <div className="EduPicture">
-                                                            <img src="logo.png" alt="logo"/>
-                                                        </div>
-                                                        <div className="EduInfo">
-                                                            <h5>{item.eduName}</h5>
-                                                            <h6>Педагоги:    {item.teachers.length}</h6>
-                                                        </div>
+                                                return <div className="pdf-own d-flex justify-content-between" onClick={()=>Univer(index)}>
+                                                    {/*<div className="EduPicture">*/}
+                                                    {/*    <img src="logo.png" alt="logo"/>*/}
+                                                    {/*</div>*/}
+                                                    <div className="EduInfo">
+                                                        <h5>{item.eduName}</h5>
+                                                        <h6>Педагоги:    {item.teachers.length}</h6>
                                                     </div>
+                                                </div>
                                             })
                                         }
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="total-teachers">
+                            <p>Всего 58 педагогов</p>
+
+                                <input  id='date' type="date"/>
+
+
+                        </div>
                         {
                             showTeachers ? <div className="listOfOrganize">
-                                <div className="boxNav">
-                                    <h1>ТДИУ Университет всего 58 педагогов</h1>
+                                <div className="boxNav1 d-flex justify-content-end pb-3">
+                                    {/*<h1>ТДИУ Университет всего 58 педагогов</h1>*/}
                                     <button className="btn btn-primary" onClick={()=>setShowTeachers(false)}></button>
                                 </div>
                                 <div className="pdf-part">
@@ -3047,10 +2539,25 @@ const AdminProfile = () =>{
                                                 teachers.map((item, index) =>{
                                                     return <div style={{margin:0}} onClick={()=>Teachers(index)}>
                                                         <TeacherCard props={item}/>
+
                                                     </div>
                                                 })
                                             }
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="download-icons">
+                                    <div className="download-word">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в Word</p>
+                                    </div>
+                                    <div className="download-exel">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в Exel</p>
+                                    </div>
+                                    <div className="download-pdf">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в PDF</p>
                                     </div>
                                 </div>
                             </div> : ""
@@ -3120,6 +2627,22 @@ const AdminProfile = () =>{
                                         </Stack>
                                     </div>
                                 </div>
+
+                                <div className="download-icons pt-5 mr-">
+                                    <div className="download-word">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в Word</p>
+                                    </div>
+                                    <div className="download-exel">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в Exel</p>
+                                    </div>
+                                    <div className="download-pdf">
+                                        <DownloadIcon/>
+                                        <p>Загрузить в PDF</p>
+                                    </div>
+                                </div>
+
                             </div> : ""
                         }
                     </div>

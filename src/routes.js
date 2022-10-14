@@ -18,7 +18,8 @@ const allInfo = lazy(()=>import("./page/AllInformation/allInformation"));
 const ProfileOverview = lazy(()=>import("./page/ProfileOverview/profileOverview"));
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
-const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+// const AdminProfile = lazy(()=>import("./page/admin/adminProfile"));
+const AdminProfile = lazy(()=>import("./page/admin/AdminProfile/adminprofile"));
 
 
 const routes = [
@@ -30,6 +31,7 @@ const routes = [
     {path:"/work", element: Work},
     {path: "/education", element: Education},
     {path:"/allInformation", element:allInfo},
+    // {path:"/adminProfile", element:AdminProfile},
     {path:"/adminProfile", element:AdminProfile},
     {path:"/certificates", element:Certificates},
     {path:"/portfolio", element:Portfolio},
