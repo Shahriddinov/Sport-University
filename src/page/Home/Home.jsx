@@ -23,6 +23,7 @@ const Home = () => {
 
     return (
         <>
+
             <Layout>
                 <div className="home">
                     <div className="back-navbar">

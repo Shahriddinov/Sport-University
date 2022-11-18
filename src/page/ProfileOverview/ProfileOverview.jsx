@@ -9,7 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import userPic from "../../assets/images/userPicture.jpg";
 import ProfileNavbar from "../../components/ProfileNavbar/ProfileNavbar";
 import PersonalInfo from "../../components/PersonalInfo/PersonalInfo";
-import "./profileOverview.scss";
+import "./ProfileOverview.scss";
 import BackgroundJob from "../../components/backgroundJob/backgroundJob";
 import EduInfo from "../../components/eduInfo/eduInfo";
 import Stack from "@mui/material/Stack";
