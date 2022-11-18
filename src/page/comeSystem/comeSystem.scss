@@ -36,7 +36,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: -6%;
+      margin-left: 1%;
 
       .name{
         font-weight: 700;
@@ -97,6 +97,8 @@
   .left{
     display: flex!important;
     align-items: center;
+    cursor: pointer;
+    color: $colorBlack;
     .icon{
       width: 18px;
     }
@@ -129,26 +131,51 @@
 
   }
 }
-  .form-control{
-    width: 100%;
-    border: none!important;
-    .cityLabel{
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      margin-bottom: 10px;
-    }
-    .city{
-      width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 24px;
-      height: 50px;
-
-    }
+.form-control{
+  width: 100%;
+  border: none!important;
+  label{
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
+  .error {
+    position: absolute;
+    color: red;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .city{
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 0.5px solid rgba(173, 173, 173, 0.8);
+    border-radius: 8px;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+    :active{
+      border: none!important;
+    }
+    :hover{
+      border: none!important;
+    }
+    p {
+      color: #bf1650;
+    }
+
+    p::before {
+      display: inline;
+      content: "⚠ ";
+    }
+
+  }
+}
 .button{
   width:191px;
   height:48px;
@@ -177,13 +204,14 @@
 }
 .passwordError{
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   display: flex;
   align-items: center;
   letter-spacing: 0.02em;
   text-decoration-line: underline;
   cursor: pointer;
+  margin-top: 5px;
   color: #FE346E;
 
 }
@@ -192,4 +220,10 @@
   display: flex;
   width: 398px;
   justify-content: space-between;
+  .button{
+    color: white;
+    &:hover{
+      color: white;
+    }
+  }
 }

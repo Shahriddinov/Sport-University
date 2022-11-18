@@ -41,21 +41,21 @@ function Page1() {
               {t("userName")} *
 
 
-            <Box
-                component="form"
-                sx={{
-                  '& > :not(style)': { width: '100%' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-              <TextField
-                  className="fio__input page1__input mt-3"
-                  id="outlined-basic"
-                  label={t("userName")}
-                  variant="outlined"
-              />
-            </Box>
+              <Box
+                  component="form"
+                  sx={{
+                    '& > :not(style)': { width: '100%' },
+                  }}
+                  noValidate
+                  autoComplete="off"
+              >
+                <TextField
+                    className="fio__input page1__input mt-3"
+                    id="outlined-basic"
+                    label={t("userName")}
+                    variant="outlined"
+                />
+              </Box>
             </label>
             <FormGroup className="page1__gender">
               <FormControlLabel control={<Switch />} label={t("women")} />
