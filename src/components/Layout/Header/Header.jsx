@@ -11,7 +11,7 @@ const Header = () => {
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
-        localStorage.setItem("lng", lng);
+        localStorage.setItem("lng",  lng);
     };
 
     return (
