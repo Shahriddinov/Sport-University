@@ -30,7 +30,7 @@ const LoginUp = () => {
         let allCome = {
             login,
             password
-        }
+        };
         axios.post('https://micros-test.w.wschool.uz/public/api/login', allCome).then((response) => {
             localStorage.setItem("token", response.data.authorisation.token)
 
@@ -83,7 +83,6 @@ const LoginUp = () => {
                             <label className="label mt-5">Логин *</label>
                             <Box
                                 component="form"
-
                                 noValidate
                                 autoComplete="off"
                             >

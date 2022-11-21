@@ -5,6 +5,9 @@ import LoginIcon from "@mui/icons-material/Login";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTranslation } from "react-i18next";
 import "antd/dist/antd.css";
+import FormHelperText from '@mui/material/FormHelperText';
+
+
 import "./works.scss";
 import ProfileSidebar from "../../components/ProfileSidebar/ProfileSidebar";
 import ProfileHeader from "../../components/ProfileHeader/ProfileHeader";
@@ -29,6 +32,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 function Works() {
+
     const { t, i18n } = useTranslation();
 
     const [region, setRegion] = React.useState('');
@@ -97,15 +101,19 @@ function Works() {
                 <div className="forms">
                     <Slayder/>
                     <div className="workInfo">
-                        <div className="workAbout">{t("workAbout")}</div>
+                        {/*<div className="workAbout">{t("workAbout")}</div>*/}
                     </div>
 
-                    <div className="form">
+                    <div className="form d-flex justify-content-around">
                         <div className="left-form">
                             <div className="Region">
                                 <label className="mt-2" htmlFor="">{t("region")} *</label>
                                 <Box sx={{mt: 1, minWidth: "500px", mb:  2}}>
-                                    <FormControl fullWidth>
+
+
+
+
+                                    <FormControl fullWidth error={jasur}>
                                         <InputLabel id="demo-simple-select-label">{t("region")}</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
@@ -113,11 +121,13 @@ function Works() {
                                             value={region}
                                             label={t("region")}
                                             onChange={handleRegion}
+
                                         >
                                             <MenuItem value={10}>Toshkent</MenuItem>
                                             <MenuItem value={20}>Forg'ona</MenuItem>
                                             <MenuItem value={30}>Nukus</MenuItem>
                                         </Select>
+                                        <FormHelperText>Error</FormHelperText>
                                     </FormControl>
                                 </Box>
                             </div>

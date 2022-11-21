@@ -1,5 +1,5 @@
 {
-  "home": "home",
+  "home": "Home",
   "homeTitle": "Welcome to the teacher's electronic portfolio system",
   "welcome": "welcome",
   "loginIn": "Registration",
@@ -50,7 +50,7 @@
   "nation": "Nationality",
   "happy": "Date of birth",
   "personal": "Personal Identification Number PINFL",
-  "phoneNumber": "Phone number",
+  "PhoneNumber": "Phone number",
   "using": "Terms of use",
   "fullInfo": "Fill in the information",
   "aboutEducation": "Education information",

@@ -1,3 +1,4 @@
+import React, {useReducer, useState} from "react";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import HomeIcon from "@mui/icons-material/Home";
 import SdCardIcon from "@mui/icons-material/SdCard";
@@ -14,7 +15,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
-import React, {useState} from "react";
+
 import dayjs from "dayjs";
 import Slayder from "../../components/Slayder/slayder";
 import Box from "@mui/material/Box";
@@ -33,18 +34,53 @@ import {func} from "prop-types";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
+const ACTIONS = {
+    USER_ADD: "user_add"
+};
+function reduser(state, action) {
+    switch (action.type) {
+        case ACTIONS.USER_ADD:
+            state = {
+                user: {
+                    ...state.user,
+                    [action.payload.key]: action.payload.value
+                }
+            };
+            break;
+    }
+    return state;
+}
 function Profile() {
     // const [user_id, setUser_id] = useState('');
-    const [full_name, setFull_name] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
+    const [full_name, setFull_name] = useState({frame:false, eText:''});
+    const [email, setEmail] = useState({frame:false, eText:''});
+    const [phone, setPhone] = useState({frame:false, eText:''});
     const [gender, setGender] = useState('');
     const [birth_date, setBirth_date] = React.useState(dayjs('2014-08-18T21:11:54'));
-    const [nationality, setNationality] = useState('');
-    const [text, setText]= useState('')
+    const [nationality, setNationality] = useState({frame:false, eText:''});
+    const [text, setText]= useState('');
     const navigate = useNavigate();
     const {t, i18n} = useTranslation();
     // const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
+
+    const initialUser={
+        id:'',
+        Ename:'',
+        Eemail:'',
+        Ephone:'',
+        Enationality:''
+    };
+    const [state, dispatch] = useReducer(reduser,{user:initialUser});
+    const initialErrorText = {
+        frame:false,
+        eText:''
+    };
+
+    function ErrorFIO(e) {
+        if(e.target.value==='') setFull_name({frame: true, eText: 'Incorrect PINFL'});
+        else setFull_name(initialErrorText)
+    }
+
 
 
     const handleChange = (newValue: Date | null) => {
@@ -90,7 +126,7 @@ function Profile() {
             birth_date,
             nationality,
             pasport_id: localStorage.getItem('pasportId')
-        }
+        };
         axios.post('https://micros-test.w.wschool.uz/public/api/personal', info).then((response) => {
             console.log(response.data)
             if (response.data.status === 'success') {
@@ -104,6 +140,17 @@ function Profile() {
                 setText("server connection error");
         })
 
+    }
+
+    function getInputValue(e) {
+        dispatch({
+            type: ACTIONS.USER_ADD,
+            payload: {
+                key: e.target.name,
+                value: e.target.value
+            }
+
+        });
     }
 
     return (
@@ -130,11 +177,19 @@ function Profile() {
                                     autoComplete="off"
                                 >
                                     <TextField
+                                        error={full_name.frame}
+                                        helperText={full_name.eText}
                                         className="fio__input page1__input mt-3"
                                         id="outlined-basic"
                                         label={t("userName")}
-                                        onChange={(e) => setFull_name(e.target.value)}
+                                        onChange={(e)=>{
+                                            getInputValue(e);
+                                            ErrorFIO(e)
+                                        }}
+                                        name="Ename"
                                         variant="outlined"
+
+
                                     />
                                 </Box>
                             </label>
@@ -163,6 +218,7 @@ function Profile() {
                                         id="outlined-basic"
                                         label={t("Email")}
                                         variant="outlined"
+
                                     />
                                 </Box>
 

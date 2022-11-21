@@ -25,10 +25,12 @@ import TextField from "@mui/material/TextField";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import dayjs from "dayjs";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import FormHelperText from "@mui/material/FormHelperText";
+import {use} from "i18next";
 
 
 function Qualification() {
-    const [region, setRegion] = React.useState('');
+    const [region, setRegion] = React.useState({frame:false, eText:''});
     const [direction, setDirection] = React.useState('');
     const [attended, setAttended] = React.useState('');
     const {t, i18n} = useTranslation();
@@ -41,6 +43,10 @@ function Qualification() {
         setValue(newValue);
     };
 
+    const [errregion, setErrregion]=useState(false);
+    const [errdirection, setErrdirection]=useState(false);
+    const [errAttended, setErrAttended]=useState(false);
+    const [helperText, setHelperText]=useState('');
 
     function getItem(label, key, icon, children) {
         return {
@@ -65,14 +71,31 @@ function Qualification() {
     };
 
     const handleChange = (event) => {
+
         setRegion(event.target.value);
+        if (event.target.value==='') {
+            (setErrregion(true) && setHelperText('hududni tanlang'))
+        }else (setErrregion(false) && setHelperText(helperText));
+
+
     };
+
     const handleDirection = (event) => {
         setDirection(event.target.value);
+        if(event.target.value===''){
+            (setErrdirection(true))
+        }else (setErrdirection(false))
     };
     const handleAttended = (event) => {
         setAttended(event.target.value);
+        if(event.target.value===''){
+            (setErrAttended(true))
+        }else (setErrAttended(false))
+
     };
+
+
+
 
     return (
         <section className="qualification">
@@ -96,19 +119,25 @@ function Qualification() {
                                     value={region}
                                     label={t("region")}
                                     onChange={handleChange}
+                                    error={errregion}
+
                                 >
+
                                     <MenuItem value="">
                                         <em>None</em>
                                     </MenuItem>
                                     <MenuItem value={10}>Ten</MenuItem>
                                     <MenuItem value={20}>Twenty</MenuItem>
                                     <MenuItem value={30}>Thirty</MenuItem>
+
                                 </Select>
+                                <FormHelperText  className='text-danger'>{helperText}</FormHelperText>
+
                             </FormControl>
                         </div>
                         <div className="form">
                             <label className="qualificationLabel">{t("direction")}*</label>
-                            <FormControl sx={{minWidth: "100%"}} size="small">
+                            <FormControl sx={{minWidth: "100%"}} size="small" >
                                 <InputLabel id="demo-select-small">{t("direction")}</InputLabel>
                                 <Select
                                     labelId="demo-select-small"
@@ -116,6 +145,7 @@ function Qualification() {
                                     value={direction}
                                     label={t("direction")}
                                     onChange={handleDirection}
+                                    error={errdirection}
                                 >
                                     <MenuItem value="">
                                         <em>None</em>
@@ -138,6 +168,7 @@ function Qualification() {
                                     value={attended}
                                     label={t("attended")}
                                     onChange={handleAttended}
+                                    error={errAttended}
                                 >
                                     <MenuItem value="">
                                         <em>None</em>

@@ -11,7 +11,7 @@ const LoginIn = lazy(()=> import("./page/Login"));
 const LoginUp = lazy(()=> import("./page/Login/LoginUp"));
 const userInfo = lazy(()=>import("./page/comeSystem/comeSystem"));
 const NotFound = lazy(() => import("./page/404"));
-// const Work=lazy(()=>import("./page/Work/work"));
+const Works=lazy(()=>import("./page/Works/works"));
 const Education = lazy(()=>import("./page/Education/eduction"));
 const Qualification = lazy(()=>import("./page/Qualification/qualification"));
 const allInfo = lazy(()=>import("./page/AllInformation/allInformation"));
@@ -28,7 +28,7 @@ const routes = [
     {path: "/userInfo", element: userInfo},
     {path: "", element: Home},
     {path: "/profile", element: Profile},
-    // {path:"/work", element: Work},
+    {path:"/works", element: Works},
     {path: "/education", element: Education},
     {path:"/allInformation", element:allInfo},
     // {path:"/adminProfile", element:AdminProfile},

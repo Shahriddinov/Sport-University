@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import "./style.scss"
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-
 import {Link} from "react-router-dom";
 import axios from "axios";
 // import reducers from "../../modules/entity/reducers";
@@ -33,21 +32,24 @@ function reduser(state, action) {
 }
 
 const LoginIn = () => {
-    const [text, setText] = useState('')
+    const [text, setText] = useState('');
     const navigate = useNavigate();
     const onClick = () => {
         // setTimeout(() => {
         //     navigate("/userInfo");
         // }, 10);
     };
-    const [id, setId] = useState('')
+    const [id, setId] = useState('');
+    const [ePinfl, setEPinfl] = useState({frame:false, eText:''});
+    const [seriaPasport, setSeriaPasport] = useState({frame:false, eText:''});
+    const [pasportNum, setPasNumber] = useState({frame:false, eText:''});
 
     const initialUser = {
         id: '',
         pnfl: "",
         pasport_seria: "",
         pasport_seria_code: ""
-    }
+    };
     const [state, dispatch] = useReducer(reduser, {user: initialUser});
 
     function getInputValues(e) {
@@ -59,7 +61,34 @@ const LoginIn = () => {
             }
 
         });
+    }
 
+    function isUpper(letter){
+        return letter >= 'A' && letter <= 'Z';
+    }
+
+    const initialErrorText = {
+        frame:false,
+        eText:''
+    };
+
+    function errorPinfl(e){
+        if(e.target.value.length !== 14) setEPinfl({frame: true, eText: 'Incorrect PINFL'});
+        else setEPinfl(initialErrorText);
+    }
+
+    function errorSeriaPasport(e){
+        if(e.target.value.length !== 2) setSeriaPasport({frame:true, eText:'Error Passport Seria'});
+        else {
+            if(isUpper(e.target.value.slice(0)) && isUpper(e.target.value.slice(-1)))
+                setSeriaPasport(initialErrorText);
+            else setSeriaPasport({frame:true, eText:'Incorrect Passport Seria'});
+        }
+    }
+
+    function errorSeriaNumber(e){
+        if(e.target.value.length !== 7) setPasNumber({frame:true, eText: 'Incorrect password'});
+        else setPasNumber(initialErrorText)
     }
 
     async function addUser() {
@@ -106,13 +135,18 @@ const LoginIn = () => {
                                 autoComplete="off"
                             >
                                 <TextField
+                                    error={ePinfl.frame}
+                                    helperText={ePinfl.eText}
                                     className="numberPhone"
                                     id="outlined-basic"
                                     label="1234567891011121314"
                                     variant="outlined"
                                     type="number"
                                     placeholder="1234567891011121314"
-                                    onChange={getInputValues}
+                                    onChange={(e)=>{
+                                        errorPinfl(e);
+                                        getInputValues(e);
+                                    }                                    }
                                     name={'pnfl'}
                                 />
                             </Box>
@@ -129,6 +163,8 @@ const LoginIn = () => {
                                     autoComplete="off"
                                 >
                                     <TextField
+                                        error={seriaPasport.frame}
+                                        helperText={seriaPasport.eText}
                                         className="line"
                                         id="outlined-basic"
                                         label="AB"
@@ -136,7 +172,10 @@ const LoginIn = () => {
                                         placeholder="AB"
                                         type="text"
                                         name={'pasport_seria'}
-                                        onChange={getInputValues}
+                                        onChange={(e) => {
+                                            getInputValues(e);
+                                            errorSeriaPasport(e);
+                                        }}
                                     />
                                 </Box>
                             </div>
@@ -150,13 +189,18 @@ const LoginIn = () => {
                                     autoComplete="off"
                                 >
                                     <TextField
+                                        error={pasportNum.frame}
+                                        helperText={pasportNum.eText}
                                         className="line"
                                         id="outlined-basic"
-                                        label="12345689"
+                                        label="1234567"
                                         variant="outlined"
-                                        placeholder="12345689"
+                                        placeholder="1234567"
                                         type="number"
-                                        onChange={getInputValues}
+                                        onChange={(e)=>{
+                                            errorSeriaNumber(e);
+                                            getInputValues(e);
+                                        }}
                                         name={'pasport_seria_code'}
                                     />
                                 </Box>
