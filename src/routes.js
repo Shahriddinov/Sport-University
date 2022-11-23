@@ -14,13 +14,13 @@ const NotFound = lazy(() => import("./page/404"));
 const Education = lazy(() => import("./page/Education/eduction"));
 const Qualification = lazy(() => import("./page/Qualification/qualification"));
 const allInfo = lazy(() => import("./page/AllInformation/allInformation"));
-const ProfileOverview = lazy(() => import("./page/ProfileOverview/ProfileOverview"))
+const ProfileOverview = lazy(() => import("./page/ProfileOverview/ProfileOverview"));
 const Portfolio = lazy(() => import("./page/Portfolio/portfolio"));
 const Certificates = lazy(() => import("./page/Certificates/certificates"));
-const Work = lazy(() => import("./page/Works/works"))
+const Work = lazy(() => import("./page/Works/works"));
 const AdminProfile = lazy(() => import("./page/admin/adminProfile"));
 const Direction = lazy(() => import("./page/Direction/direction"));
-const AllPdf = lazy(() => import("./page/InformationAllPdf/informationAllPdf"))
+const AllPdf = lazy(() => import("./page/InformationAllPdf/informationAllPdf"));
 
 
 const routes = [
