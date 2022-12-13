@@ -1,4 +1,4 @@
-@import "./src/assets/ui";
+@import './src/assets/ui';
 
 .loginUp {
   width: 100%;
@@ -33,12 +33,14 @@
       left: 30px;
       right: 30px;
     }
-
   }
 
   .right {
     width: 50%;
-    .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container {
       .col-md-10 {
         display: flex;
         flex-direction: column;
@@ -56,11 +58,11 @@
           font-weight: 700;
           font-size: 25px;
           line-height: 29px;
-          color: $colorBlue;
+          color: $colorBlueSecondary;
           margin-top: 30px;
           letter-spacing: 0.02em;
         }
-        .label{
+        .label {
           font-weight: 500;
           font-size: 20px;
           line-height: 23px;
@@ -70,39 +72,38 @@
           color: #424242;
           margin-bottom: 10px;
         }
-        .InputName{
+        .InputName {
           width: 550px;
           height: 55px;
           //padding: 0 10px;
-          background: #FFFFFF;
+          background: #ffffff;
           box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.1);
           border-radius: 8px;
           border: none;
         }
-        .InputInfo{
+        .InputInfo {
           width: 260px;
           height: 50px;
-          background: #FFFFFF;
+          background: #ffffff;
           box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.1);
           border-radius: 8px;
           border: none;
           padding: 0 10px;
-          &:last-child{
+          &:last-child {
             margin-right: 12px;
           }
-          &:nth-child(2){
+          &:nth-child(2) {
             margin-left: 12px;
           }
 
-          &:active{
+          &:active {
             border: 1px solid $colorBlue;
-
           }
-          &:hover{
+          &:hover {
             border: 1px solid $colorBlue;
           }
         }
-        .radioText{
+        .radioText {
           font-weight: 500;
           font-size: 14px;
           line-height: 16px;
@@ -111,13 +112,12 @@
           letter-spacing: 0.02em;
           text-decoration-line: underline;
           margin-left: 10px;
-          color: #435D8F;
-
+          color: #435d8f;
         }
-        .save{
+        .save {
           width: 550px;
           height: 50px;
-          background: #2B63C0;
+          background: #2b63c0;
           box-shadow: 0px 0px 10px rgba(38, 38, 38, 0.15);
           border-radius: 8px;
           font-weight: 500;
@@ -128,11 +128,10 @@
           justify-content: center;
           letter-spacing: 0.02em;
           margin-top: 10%;
-          color: #FFFFFF;
+          color: #ffffff;
           border: none;
-
         }
-        .Reset{
+        .Reset {
           width: 88%;
           margin-top: 20%;
           font-size: 16px;
@@ -141,11 +140,7 @@
           align-items: center;
           //justify-content: space-around;
         }
-
       }
     }
   }
-
-
-
 }
